@@ -26,7 +26,8 @@ import org.dasein.cloud.compute.VirtualMachineLifecycle;
 import org.dasein.cloud.compute.VmState;
 import org.dasein.cloud.compute.VmStatus;
 import org.dasein.cloud.compute.Volume;
-import org.dasein.cloud.network.RawAddress;
+
+import com.infinities.skyport.network.SkyportRawAddress;
 
 public interface IVirtualMachine extends ManagedObject, Serializable {
 
@@ -60,7 +61,7 @@ public interface IVirtualMachine extends ManagedObject, Serializable {
 
 	String getPrivateDnsAddress();
 
-	RawAddress[] getPrivateAddresses();
+	SkyportRawAddress[] getPrivateAddresses();
 
 	String getProviderAssignedIpAddressId();
 
@@ -76,7 +77,7 @@ public interface IVirtualMachine extends ManagedObject, Serializable {
 
 	String getPublicDnsAddress();
 
-	RawAddress[] getPublicAddresses();
+	SkyportRawAddress[] getPublicAddresses();
 
 	String getVirtualMachineGroup();
 

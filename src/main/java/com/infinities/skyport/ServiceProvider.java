@@ -26,7 +26,6 @@ import org.dasein.cloud.InternalException;
 import org.dasein.cloud.ProviderContext;
 import org.dasein.cloud.admin.AdminServices;
 import org.dasein.cloud.ci.CIServices;
-import org.dasein.cloud.compute.ComputeServices;
 import org.dasein.cloud.dc.DataCenterServices;
 import org.dasein.cloud.identity.IdentityServices;
 import org.dasein.cloud.network.NetworkServices;
@@ -35,6 +34,18 @@ import org.dasein.cloud.storage.StorageServices;
 import org.dasein.cloud.util.NamingConstraints;
 import org.dasein.cloud.util.ResourceNamespace;
 
+import com.infinities.skyport.compute.SkyportComputeServices;
+
+/**
+ * This is a customized version of org.dasein.cloud.CloudService.
+ * <p>
+ * Created by Pohsun Huang: 12/23/15 10:57 AM
+ * </p>
+ * 
+ * @author Pohsun Huang
+ * @version 2015.12 initial version
+ * @since 2015.12
+ */
 public interface ServiceProvider {
 
 	void initialize() throws ConcurrentException;
@@ -80,7 +91,7 @@ public interface ServiceProvider {
 	CIServices getCIServices() throws ConcurrentException;
 
 	@Nullable
-	ComputeServices getComputeServices() throws ConcurrentException;
+	SkyportComputeServices getSkyportComputeServices() throws ConcurrentException;
 
 	@Nullable
 	IdentityServices getIdentityServices() throws ConcurrentException;
