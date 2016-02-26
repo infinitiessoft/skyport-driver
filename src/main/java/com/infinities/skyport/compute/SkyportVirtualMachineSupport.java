@@ -309,7 +309,7 @@ public interface SkyportVirtualMachineSupport extends AccessControlledService {
 	 *             an error occurred within the cloud provider
 	 */
 	@Nonnull
-	VirtualMachineCapabilities getCapabilities() throws InternalException, CloudException;
+	SkyportVirtualMachineCapabilities getCapabilities() throws InternalException, CloudException;
 
 	/**
 	 * Provides the password as stored by the cloud provider (sometimes
@@ -473,6 +473,25 @@ public interface SkyportVirtualMachineSupport extends AccessControlledService {
 	 *             subscription state
 	 */
 	boolean isSubscribed() throws CloudException, InternalException;
+
+	/**
+	 * Changes the VirtualMachineProduct for clouds that allow the operation.
+	 * This method is intended for use in clouds with contiguous, non-named
+	 * products.
+	 *
+	 * @param virtualMachineId
+	 *            the virtual machine being altered
+	 * @param options
+	 *            the options to use in updating a virtual machine
+	 * @return the modified VirtualMachine object
+	 * @return a virtual machine representing the scaled virtual machine
+	 * @throws InternalException
+	 *             an internal error occurred processing the request
+	 * @throws CloudException
+	 *             an error occurred in the cloud processing the request
+	 */
+	VirtualMachine updateVirtualMachine(@Nonnull String virtualMachineId, @Nonnull VMUpdateOptions options)
+			throws InternalException, CloudException;
 
 	/**
 	 * Preferred mechanism for launching a virtual machine in the cloud. This
