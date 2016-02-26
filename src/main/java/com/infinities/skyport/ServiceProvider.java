@@ -26,15 +26,15 @@ import org.dasein.cloud.InternalException;
 import org.dasein.cloud.ProviderContext;
 import org.dasein.cloud.admin.AdminServices;
 import org.dasein.cloud.ci.CIServices;
-import org.dasein.cloud.dc.DataCenterServices;
 import org.dasein.cloud.identity.IdentityServices;
-import org.dasein.cloud.network.NetworkServices;
 import org.dasein.cloud.platform.PlatformServices;
 import org.dasein.cloud.storage.StorageServices;
 import org.dasein.cloud.util.NamingConstraints;
 import org.dasein.cloud.util.ResourceNamespace;
 
 import com.infinities.skyport.compute.SkyportComputeServices;
+import com.infinities.skyport.dc.SkyportDataCenterServices;
+import com.infinities.skyport.network.SkyportNetworkServices;
 
 /**
  * This is a customized version of org.dasein.cloud.CloudService.
@@ -85,7 +85,7 @@ public interface ServiceProvider {
 	String getCloudName();
 
 	@Nonnull
-	DataCenterServices getDataCenterServices() throws ConcurrentException;
+	SkyportDataCenterServices getSkyportDataCenterServices() throws ConcurrentException;
 
 	@Nullable
 	CIServices getCIServices() throws ConcurrentException;
@@ -97,7 +97,7 @@ public interface ServiceProvider {
 	IdentityServices getIdentityServices() throws ConcurrentException;
 
 	@Nullable
-	NetworkServices getNetworkServices() throws ConcurrentException;
+	SkyportNetworkServices getSkyportNetworkServices() throws ConcurrentException;
 
 	@Nullable
 	PlatformServices getPlatformServices() throws ConcurrentException;
