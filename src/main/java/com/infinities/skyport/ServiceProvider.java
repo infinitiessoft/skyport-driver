@@ -28,13 +28,13 @@ import org.dasein.cloud.admin.AdminServices;
 import org.dasein.cloud.ci.CIServices;
 import org.dasein.cloud.identity.IdentityServices;
 import org.dasein.cloud.platform.PlatformServices;
-import org.dasein.cloud.storage.StorageServices;
 import org.dasein.cloud.util.NamingConstraints;
 import org.dasein.cloud.util.ResourceNamespace;
 
 import com.infinities.skyport.compute.SkyportComputeServices;
 import com.infinities.skyport.dc.SkyportDataCenterServices;
 import com.infinities.skyport.network.SkyportNetworkServices;
+import com.infinities.skyport.storage.SkyportStorageServices;
 
 /**
  * This is a customized version of org.dasein.cloud.CloudService.
@@ -68,7 +68,7 @@ public interface ServiceProvider {
 
 	boolean hasStorageServices();
 
-	StorageServices getStorageServices() throws ConcurrentException;
+	SkyportStorageServices getSkyportStorageServices() throws ConcurrentException;
 
 	@Nullable
 	AdminServices getAdminServices() throws ConcurrentException;
