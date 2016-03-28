@@ -36,6 +36,7 @@ public class SkyportRawAddress {
 	private String ipAddress;
 	private IPVersion version;
 	private String vlanName;
+	private String macAddress;
 
 
 	/**
@@ -44,9 +45,15 @@ public class SkyportRawAddress {
 	 * 
 	 * @param ipAddress
 	 *            the IP address string for the address
+	 * @param vlanName
+	 *            the vlan Name for the address
+	 * @param macAddress
+	 *            tthe MAC address string for the address
+	 * 
 	 */
-	public SkyportRawAddress(@Nonnull String ipAddress, @Nonnull String vlanName) {
+	public SkyportRawAddress(@Nonnull String ipAddress, @Nonnull String vlanName, String macAddress) {
 		this.ipAddress = ipAddress;
+		this.macAddress = macAddress;
 		this.setVlanName(vlanName);
 		String[] tmp = ipAddress.split("\\.");
 
@@ -67,10 +74,14 @@ public class SkyportRawAddress {
 	 *            the IP version associated with the address
 	 * @param netowkrName
 	 *            the vlan name associated with the address
+	 * @param macAddress
+	 *            tthe MAC address string for the address
 	 */
-	public SkyportRawAddress(@Nonnull String ipAddress, @Nonnull IPVersion version, @Nonnull String vlanName) {
+	public SkyportRawAddress(@Nonnull String ipAddress, @Nonnull IPVersion version, @Nonnull String vlanName,
+			String macAddress) {
 		this.ipAddress = ipAddress;
 		this.version = version;
+		this.macAddress = macAddress;
 		this.setVlanName(vlanName);
 	}
 
@@ -101,6 +112,13 @@ public class SkyportRawAddress {
 	@Override
 	public int hashCode() {
 		return ipAddress.hashCode();
+	}
+
+	/**
+	 * @return the macAddress
+	 */
+	public String getMacAddress() {
+		return macAddress;
 	}
 
 	/**

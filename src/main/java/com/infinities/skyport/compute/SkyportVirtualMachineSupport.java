@@ -25,6 +25,7 @@ import org.dasein.cloud.AccessControlledService;
 import org.dasein.cloud.Capabilities;
 import org.dasein.cloud.CloudException;
 import org.dasein.cloud.InternalException;
+import org.dasein.cloud.OperationNotSupportedException;
 import org.dasein.cloud.Requirement;
 import org.dasein.cloud.ResourceStatus;
 import org.dasein.cloud.Tag;
@@ -371,6 +372,20 @@ public interface SkyportVirtualMachineSupport extends AccessControlledService {
 	 */
 	@Nullable
 	VirtualMachineProduct getProduct(@Nonnull String productId) throws InternalException, CloudException;
+
+	/**
+	 * Provides the data from a specific virtual machine.
+	 *
+	 * @param vmId
+	 *            the provider ID for the desired server
+	 * @return the data behind the target server
+	 * @throws InternalException
+	 *             an error occurred within the Dasein Cloud API implementation
+	 * @throws CloudException
+	 *             an error occurred within the cloud provider
+	 */
+	@Nullable
+	NovaStyleVirtualMachine getNovaStyleVirtualMachine(@Nonnull String vmId) throws InternalException, CloudException;
 
 	/**
 	 * Provides the data from a specific virtual machine.
